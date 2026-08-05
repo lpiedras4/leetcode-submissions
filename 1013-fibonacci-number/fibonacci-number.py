@@ -1,13 +1,12 @@
 class Solution:
     def fib(self, n: int) -> int:
-        memo = {}
         if n == 0:
             return 0
-        if n in memo:
-            return memo[n]
+       
         if n <= 2:
-            result = 1
+            return 1
         else:
             result = self.fib(n - 1) + self.fib(n - 2)
-        memo[n] = result
+            
+        
         return result
