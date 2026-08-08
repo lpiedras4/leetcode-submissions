@@ -2,12 +2,14 @@ class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
         s = set()
         res = []
-        for i in range(len(nums)):
-            if nums[i] not in s:
-                s.add(nums[i])
+
+        for num in nums:
+            if num not in s:
+                s.add(num)
             else:
-                res.append(nums[i])
+                res.append(num)
+        
         for number in range(1, len(nums) + 1):
-            if number not in nums and number not in s:
+            if number not in nums:
                 res.append(number)
         return res
