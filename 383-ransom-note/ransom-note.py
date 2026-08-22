@@ -1,11 +1,11 @@
 class Solution:
     def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-        if len(ransomNote) > len(magazine):
+        if len(magazine) < len(ransomNote):
             return False
         
-        letters =  collections.Counter(magazine)
-        for c in ransomNote:
-            if c not in letters or letters[c]<=0:
+        count = collections.Counter(magazine)
+        for letter in ransomNote:
+            if letter not in count or count[letter]<=0:
                 return False
-            letters[c]-=1
-        return True 
+            count[letter]-=1
+        return True
